@@ -1,0 +1,26 @@
+<html>
+  <body>
+    <div class="Page-Container">
+    <h1>All Tasks</h1>
+    <table>
+      <thead>
+        <tr id="no-hover">
+          <th>Id</th>
+          <th>Description</th>
+          <th>Completed</th>
+          <th>Due At</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @all_tasks.each do |task| %>
+        <tr class="Table-Row">
+          <td><a href='/tasks/<%= task.id %>'><%=task.id %></a></td>
+          <td><%= task.description %></td> 
+          <td><%= task.completed %></td>
+          <td><%= task.due_at %></td>
+        </tr>
+      <%end%>
+      </tbody>
+    </table>
+  </body>
+</html>

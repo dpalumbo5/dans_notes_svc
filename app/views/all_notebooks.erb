@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <div class="Page-Container">
+    <h1>All Notebooks</h1>
+    <table cellspacing="5">
+      <thead>
+        <tr id="no-hover">
+          <th>Id</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @all_notebooks.each do |notebook| %>
+          <tr class="Table-Row">
+            <td><a href='/notebooks/<%= notebook.id %>'><%= notebook.id %></a></td>
+            <td><%= notebook.title %></td> 
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </body>
+</html>
+

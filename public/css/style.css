@@ -1,0 +1,113 @@
+input {
+  width: 730px;
+  padding: 11px;
+  font-size: 14;
+  background: #eee;
+}
+
+.Nav {
+  width: 100%;
+  background: teal;
+  color: white;
+  height: 50px;
+  margin: 2px;
+  border: 4px;
+  padding: 6px;
+}
+
+h1 {
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-transform: capitalize;
+  background: teal;
+  width: 730px;
+}
+.Brand {
+  font-size: 30px;
+  color: white;
+  margin-right: 50px;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  color: black;
+
+}
+
+.Page-Container {
+  max-width: 750px;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+table {
+  width: 730px;
+  border-collapse: collapse;
+  border-spacing: 1px;
+  text-transform: capitalize;
+  margin: auto;
+}
+
+thead {
+  width: 730px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  text-transform: capitalize;
+  color: black;
+  background: white;
+  font-size: 14px;
+}
+
+td {
+  border-collapse: collapse;
+}
+
+tr {
+  line-height: 30px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+#no-hover{
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  color: black;
+  background: grey;
+  font-size: 14px;
+}
+
+tr:nth-child(even) {
+  background-color: Gainsboro;
+  border: 1px solid black;
+}
+
+tr:hover{
+  background: teal;
+  color: white;
+  font-size: 13px;
+  font-family: "Lucida Console", Monaco, monospace;
+  border: 1px solid black;
+}
+
+.Table-Row {
+  line-height: 40px;
+  border: 1px solid black;
+}
+
+.Nav-Link {
+  float: left;
+  padding: 5px;
+  line-height:30px;
+}
+
+.Nav-Link a {
+  color: white;
+  text-decoration: none;
+  line-height: 30px;
+}
+
+#create-button {
+  width: 200px;
+  color: teal;
+}
+
+#remove-button {
+  width: 200px;
+  color: red;
+}

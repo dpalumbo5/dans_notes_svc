@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <div class="Page-Container">
+    <h1>All Users</h1>
+    <table cellspacing="5">
+      <thead>
+        <tr id="no-hover">
+          <th>Id</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>User Email</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @all_users.each do |user| %>
+          <tr class="Table-Row">
+            <td><a href='/users/<%= user.id %>'><%= user.id %></a></td>
+            <td><%= user.first_name %></td> 
+            <td><%= user.last_name %></td>
+            <td><%= user.email %></td>
+          </tr>
+        <%end%>
+      </tbody>
+    </table>
+  </body>
+</html>
+

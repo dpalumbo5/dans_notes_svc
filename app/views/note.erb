@@ -1,0 +1,51 @@
+<html>
+<body>
+  <div class="Page-Container">
+    <h1>Specific Note</h1>
+    <div>
+      <table>
+        <tr id="no-hover">
+          <th>Id</th>
+          <th>Comment</th>
+          <th>Category</th>
+          <th>Completed</th>
+          <th>Notebook</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%=@note.id%></td>
+            <td><%=@note.comment%></td>
+            <td><%=@note.category%></td>
+            <td><%=@note.completed%></td>
+            <td><%=@note.notebook%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+    <div>
+      <form method="post" action="/notes/<%=@note.id%>">
+        <div>
+          <input type="text" name="comment" placeholder="<%=@note.comment%>" />
+        </div>
+        <div>
+          <input type="text" name="category" placeholder="<%=@note.category%>" />
+        </div>
+        <div>
+      </form>
+    </div>
+    <div>
+      <input id="create-button" type="submit" />
+    </div>
+    <div>
+      <form method="post" action="/notes/<%=@note.id%>/delete">
+        <div>
+          <input id="remove-button" type="submit" value="Delete" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+

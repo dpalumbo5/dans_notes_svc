@@ -1,0 +1,42 @@
+<html>
+<body>
+  <div class="Page-Container">
+    <h1>Specific Notebook</h1>
+    <div>
+      <table>
+        <tr id="no-hover">
+          <th>Id</th>
+          <th>Title</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+            <td><%=@notebook.id%></td>
+            <td><%=@notebook.title%></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+    <div>
+      <form method="post" action="/notebooks/<%=@notebook.id%>">
+        <div>
+          <input type="text" name="title" placeholder="<%=@notebook.title%>" />
+        </div>
+      </form>
+    </div>
+    <div>
+      <input id="create-button" type="submit" />
+    </div>
+    <div>
+      <form method="post" action="/notebooks/<%=@notebook.id%>/delete">
+        <div>
+          <input id="remove-button" type="submit" value="Delete" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+
