@@ -13,8 +13,15 @@ env_arg = ARGV[env_index + 1] if env_index
 env = env_arg || 'development'
 ENV['RACK_ENV'] ||= env
 Bundler.setup(:default, env)
-
+#
 #connect to database
 use ActiveRecord::ConnectionAdapters::ConnectionManagement
-databases = YAML.load_file("config/database.yml")
-ActiveRecord::Base.establish_connection(databases[env])
+
+if ENV['RACK_ENV'] == 'staging'
+  ActiveRecord::Base.establish_connection(
+    'postgresql://notes_master:password@notes-db-instance-1.cwarswmeoza2.us-east-1.rds.amazonaws.com:5432/notes_db'
+  )
+else
+  databases = YAML.load_file("config/database.yml")
+  ActiveRecord::Base.establish_connection(databases[env])
+end
