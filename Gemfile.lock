@@ -53,6 +53,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (3.6.0)
     rack (1.6.4)
     rack-parser (0.4.0)
       rack
@@ -103,6 +104,7 @@ DEPENDENCIES
   json
   pg
   pry
+  puma
   rack-parser
   sinatra
   sinatra-contrib
@@ -110,4 +112,4 @@ DEPENDENCIES
   tilt
 
 BUNDLED WITH
-   1.11.2
+   1.13.5
