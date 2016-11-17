@@ -1,0 +1,3 @@
+#! /bin/bash -e
+
+script/puma_server staging -d &

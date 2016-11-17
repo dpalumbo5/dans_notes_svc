@@ -2,3 +2,10 @@
 development:
   adapter: postgresql
   database: my_database
+staging:
+  adapter: postgresql
+  database: notes_db
+  host: notes-db-instance-1.cwarswmeoza2.us-east-1.rds.amazonaws.com
+  username: notes_master
+  password: password
+  port: 5432

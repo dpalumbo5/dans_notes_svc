@@ -12,18 +12,11 @@ require './app/models/notebook'
 require './app/models/auth_token'
 
 class BaseController < Sinatra::Base
-  helpers Sinatra::Param
-  use Rack::Parser
-  set :views, Proc.new { File.join(root, "../views") }
-  public_folder = File.dirname(__FILE__).gsub('/app/controllers','') + '/public'
-  set :public_folder, public_folder
-
-  puts "public folder - #{public_folder}"
-
-  configure :development do
-    register Sinatra::Reloader
-  end
-
+  helpers   Sinatra::Param
+  use       Rack::Parser
+  set       :views,         Proc.new { File.join(root, "../views") }
+  set       :public_folder, Proc.new { File.join(root, "../../public") }
+  configure (:development) { register Sinatra::Reloader }
 
   before '/api/*' do
     content_type :json

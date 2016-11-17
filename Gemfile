@@ -5,6 +5,7 @@ gem 'sinatra'
 gem 'sinatra-param', require: 'sinatra/param'
 gem 'sinatra-contrib'
 gem 'rack-parser', require: 'rack/parser'
+gem 'puma'
 
 # orm
 gem 'activerecord'
