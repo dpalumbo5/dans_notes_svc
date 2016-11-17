@@ -34,6 +34,7 @@ class BaseController < Sinatra::Base
 
   before '*' do
     return if request.path == '/auth/login'
+    return if request.path == '/users/new'
 
     # find auth token cookie
     token = request.cookies['Auth-Token']
@@ -43,6 +44,11 @@ class BaseController < Sinatra::Base
     end
 
     auth_token = AuthToken.where(token:token).first
+
+    if auth_token.nil?
+      redirect '/auth/login'
+    end
+
     @current_user = auth_token.user
   end
 

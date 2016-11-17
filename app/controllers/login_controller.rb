@@ -36,6 +36,13 @@ class LoginController < BaseController
     redirect '/notebooks/all'
   end
 
+  get '/logout' do
+    token = @current_user.auth_token
+    token.delete
+    status 204
+    redirect '/auth/login'
+  end
+
   get '/login' do
     erb :login, layout: :default_layout
   end

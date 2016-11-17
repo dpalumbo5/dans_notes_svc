@@ -2,6 +2,8 @@ require './app/controllers/base_controller'
 require './app/models/note'
 require './app/models/user'
 require './app/models/notebook'
+require './app/models/auth_token'
+
 
 class UserViewsController < BaseController
 
@@ -23,7 +25,8 @@ class UserViewsController < BaseController
     param :email, String, required: true
     param :first_name, String
     param :last_name, String
-    User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email])
+    param :password, String
+    User.create!(first_name: params[:first_name], last_name: params[:last_name], email: params[:email], password: params[:password])
 
     @all_users = User.all
     redirect to('/all')

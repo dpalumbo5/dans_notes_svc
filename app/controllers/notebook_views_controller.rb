@@ -6,7 +6,7 @@ require './app/models/user'
 class NotebookViewsController < BaseController
 
   get '/all' do
-    @all_notebooks = Notebook.all.order(id: :asc)
+    @all_notebooks = @current_user.notebooks.order(id: :asc)
     erb :all_notebooks, layout: :default_layout
   end
 
@@ -21,7 +21,7 @@ class NotebookViewsController < BaseController
 
   post '/new' do
    param :title, String
-   Notebook.create!(title: params[:title])
+   Notebook.create!(title: params[:title], user_id: @current_user.id)
 
    @all_notebooks = Notebook.all
    redirect to('/all')

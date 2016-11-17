@@ -16,11 +16,12 @@ class NotebooksController < BaseController
    json notebooks: all_notebooks
  end
 
-   post '/' do
-     param :title, String
+ post '/' do
+   param :title, String
+   param :user_id, Integer, required: true
 
-     status 201
-     json note: "Received comment with category #{params[:category]}"
-   end
+   status 201
+   json note: "Received Notebook with User ID #{params[:user_id]}"
+ end
 
 end
