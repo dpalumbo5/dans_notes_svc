@@ -5,12 +5,14 @@ require './app/models/auth_token'
 class LoginController < BaseController
 
   post '/login' do
-    param :email, String, required: true
-    param :password, String, required: true
+    param :email, String, required: true, blank: false
+    param :password, String, required: true, blank: false
 
     # verify email and password are correct
     ## find user by email
     user = User.find_by(email: params[:email])
+    raise ActiveRecord::RecordNotFound if user.nil?
+
     ## confirm password matches
     #password they type has to be the user.password
     if params[:password] != user.password
