@@ -1,0 +1,3 @@
+#! /bin/bash -e
+
+ssh -i "NotesService.pem" ubuntu@ec2-52-54-206-252.compute-1.amazonaws.com

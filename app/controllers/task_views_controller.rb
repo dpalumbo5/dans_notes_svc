@@ -4,7 +4,7 @@ require './app/models/task'
 class TaskViewsController < BaseController
 
   get '/all' do
-    @all_tasks = Task.all.order(id: :asc)
+    @all_tasks = @current_user.tasks.order(id: :asc)
     erb :all_tasks, layout: :default_layout
   end
 
@@ -13,25 +13,27 @@ class TaskViewsController < BaseController
   end
 
   get '/:task_id' do
-    @task = Task.find(params[:task_id])
+    @task = @current_user.tasks.find(params[:task_id])
     erb :task, layout: :default_layout
   end
 
   post '/new' do
    param :description, String, required: true
    param :completed, Boolean
-   Task.create!(description: params[:description], completed: params[:completed])
+   param :due_at, Date
+   Task.create!(description: params[:description], completed: params[:completed], due_at: params[:due_at], user_id: @current_user.id)
 
-   @all_tasks = Task.all
+   #@all_tasks = Task.all
    redirect to('/all')
   end
 
   post '/:task_id' do
-    param :description, String
+    param :description, String, required: true
     param :completed, Boolean
+    param :due_at, Date
 
     @task = Task.find(params[:task_id])
-    @task.description = params[:description] if params[:description].present?
+    task.description = params[:description] if params[:description].present?
     @task.completed = params[:completed] if params[:completed].present?
     @task.due_at = params[:due_at] if params[:due_at].present?
     @task.save!
