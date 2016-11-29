@@ -6,7 +6,7 @@ require './app/models/notebook'
 class NoteViewsController < BaseController
 
   get '/all' do
-    @all_notes = Note.all.order(id: :asc)
+    @all_notes = @current_user.notes.order(id: :asc)
     erb :all_notes, layout: :default_layout
   end
 
@@ -15,7 +15,7 @@ class NoteViewsController < BaseController
   end
 
   get '/:note_id' do
-    @note = Note.find(params[:note_id])
+    @note = @current_user.notes.find(params[:note_id])
     erb :note, layout: :default_layout
   end
 
@@ -28,8 +28,8 @@ class NoteViewsController < BaseController
    Note.create!(
      comment:     params[:comment],
      category:    params[:category],
-     user_id:     params[:user_id],
-     notebook_id: params[:notebook_id]
+     notebook_id: params[:notebook_id],
+     user_id:     @current_user.id
    )
 
    @all_notes = Note.all

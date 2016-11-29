@@ -15,7 +15,7 @@ class NotebookViewsController < BaseController
   end
 
   get '/:notebook_id' do
-    @notebook = Notebook.find(params[:notebook_id])
+    @notebook = @current_user.notebooks.find(params[:notebook_id])
     erb :notebook, layout: :default_layout
   end
 
